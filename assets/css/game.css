@@ -1,0 +1,691 @@
+  /* ----- 0. CONFIGURACIÓN RAÍZ Y SCROLL SUAVE ----- */
+  html {
+      scroll-behavior: smooth;
+  }
+
+  /* ----- 1. VARIABLES CSS (:root) Y CONFIGURACIÓN GENERAL ----- */
+  :root {
+      --color-bg-main: #f4f6f9;
+      --color-text-main: #333333;
+      --color-header-bg: #1b263b;
+      --color-header-text: #ffffff;
+      --color-accent: #e0a96d;
+      --color-accent-hover: #f4d35e;
+      --color-nav-bg: #415a77;
+      --color-card-bg: #ffffff;
+      --color-border: #d8d8d8;
+      --color-subtext: #e0e1dd;
+      --color-desc: #555555;
+      --transicion-suave: all 0.3s ease;
+  }
+
+  * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+  }
+
+  body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--color-bg-main);
+      color: var(--color-text-main);
+      line-height: 1.6;
+  }
+
+  /* ----- 2. ENCABEZADO Y FORMULARIO DE ACCESO ----- */
+  #top {
+      background-color: var(--color-header-bg);
+      color: var(--color-header-text);
+      padding: 2.5rem 1.25rem;
+      text-align: center;
+      border-bottom: 0.25rem solid var(--color-accent);
+  }
+
+  #top form {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 1.25rem;
+      border-radius: 0.5rem;
+      width: 100%;
+      max-width: 25rem;
+      margin: 0 auto 1.875rem auto;
+      display: grid;
+      grid-template-columns: 6.25rem 1fr;
+      gap: 0.9375rem 0.625rem;
+      align-items: center;
+      text-align: left;
+  }
+
+  #top label {
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: var(--color-header-text);
+  }
+
+  #top input {
+      width: 100%;
+      padding: 0.5rem;
+      border: 0.0625rem solid #ccc;
+      border-radius: 0.25rem;
+      font-size: 0.9rem;
+  }
+
+  #top form button {
+      grid-column: span 2;
+      width: 100%;
+      background-color: var(--color-accent);
+      color: var(--color-header-bg);
+      border: none;
+      padding: 0.625rem;
+      border-radius: 0.25rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: var(--transicion-suave);
+  }
+
+  #top form button:hover {
+      background-color: var(--color-accent-hover);
+  }
+
+  #top .titulo-principal {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      margin-bottom: 0.625rem;
+      color: var(--color-header-text);
+  }
+
+  #top .subtitulo-principal {
+      font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+      margin-bottom: 0.9375rem;
+      color: var(--color-accent);
+      font-weight: normal;
+  }
+
+  #top p {
+      font-size: 1.1rem;
+      color: var(--color-subtext);
+      max-width: 43.75rem;
+      margin: 0 auto;
+  }
+
+  /* ----- 3. MENÚ DE NAVEGACIÓN -----
+     Lo estiliza Bootstrap (.navbar) en todas las páginas: no hay reglas propias. */
+
+  /* ----- 4. CONTENIDO PRINCIPAL Y SECCIÓN PRODUCTOS ----- */
+  main {
+      max-width: 75rem;
+      margin: 1.875rem auto;
+      padding: 0 1.25rem;
+  }
+
+  #productos h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1.875rem;
+      color: var(--color-header-bg);
+      border-bottom: 0.125rem solid var(--color-nav-bg);
+      padding-bottom: 0.625rem;
+  }
+
+  #productos>ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
+      gap: 1.5625rem;
+  }
+
+  #productos>ul>li {
+      background-color: var(--color-card-bg);
+      border: 0.0625rem solid var(--color-border);
+      border-radius: 0.5rem;
+      padding: 1.25rem;
+      text-align: center;
+      box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.05);
+      transition: var(--transicion-suave);
+  }
+
+  #productos>ul>li:hover {
+      transform: translateY(-0.3125rem);
+  }
+
+  #productos>ul>li:nth-child(even) {
+      border-top: 0.25rem solid var(--color-nav-bg);
+  }
+
+  #productos>ul>li:nth-child(odd) {
+      border-top: 0.25rem solid var(--color-accent);
+  }
+
+  #productos img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: contain;
+      margin-bottom: 0.9375rem;
+      border-radius: 0.25rem;
+  }
+
+  #productos h3 {
+      font-size: 1.2rem;
+      color: var(--color-header-bg);
+      margin-bottom: 0.625rem;
+  }
+
+  #productos p {
+      font-size: 0.95rem;
+      color: var(--color-desc);
+  }
+
+  /* ----- 5. PIE DE PÁGINA (FOOTER) -----
+     Lo estiliza Bootstrap (bg-dark, text-white, py-4...) en todas las páginas. */
+
+  /* ----- 6. MEDIA QUERIES (PUNTOS DE QUIEBRE RESPONSIVOS) ----- */
+  @media (max-width: 64rem) {
+
+      /* Tablets: entre 768px y 1024px */
+      main {
+          padding: 0 1rem;
+      }
+
+      #productos>ul {
+          grid-template-columns: repeat(2, 1fr);
+      }
+  }
+
+  @media (max-width: 48rem) {
+
+      /* Pantallas móviles menores a 768px */
+      #top form {
+          grid-template-columns: 1fr;
+          gap: 0.5rem;
+      }
+  }
+
+  /* ----- 7. ESTILOS PARA PRECIOS Y PÁGINA DE DETALLE ----- */
+  .card-enlace {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+  }
+
+  .precio {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--color-accent);
+      margin: 0.5rem 0;
+  }
+
+  .detalle-producto-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      background-color: var(--color-card-bg);
+      padding: 2rem;
+      border-radius: 0.5rem;
+      border: 0.0625rem solid var(--color-border);
+      align-items: center;
+  }
+
+  .detalle-imagen img {
+      width: 100%;
+      max-height: 25rem;
+      object-fit: contain;
+  }
+
+  .bloque-precios {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+  }
+
+  .precio-normal {
+      color: #6c757d;
+      font-size: 0.9rem;
+  }
+
+  .precio-detalle {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--color-accent);
+      margin: 1rem 0;
+  }
+
+  .descripcion-larga {
+      font-size: 1rem;
+      color: var(--color-desc);
+      margin-bottom: 1.5rem;
+  }
+
+  .compra-acciones {
+      display: flex;
+      flex-wrap: wrap; /* en pantallas angostas el botón baja a la línea siguiente */
+      gap: 1rem;
+      align-items: center;
+  }
+
+  .compra-acciones label {
+      font-weight: bold;
+  }
+
+  .compra-acciones input {
+      width: 4rem;
+      padding: 0.5rem;
+      text-align: center;
+      border: 0.0625rem solid var(--color-border);
+      border-radius: 0.25rem;
+  }
+
+  .btn-agregar {
+      background-color: var(--color-accent);
+      color: var(--color-header-bg);
+      border: none;
+      padding: 0.625rem 1.25rem;
+      font-weight: bold;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      transition: var(--transicion-suave);
+  }
+
+  .btn-agregar:hover {
+      background-color: var(--color-accent-hover);
+  }
+
+  @media (max-width: 48rem) {
+      .detalle-producto-container {
+          /* minmax(0, 1fr): la columna puede encogerse y no empuja el contenido fuera de la pantalla */
+          grid-template-columns: minmax(0, 1fr);
+          padding: 1.25rem;
+      }
+  }
+  /* ==========================================================================
+     8. ESTILOS DE LOS COMPONENTES CREADOS CON JAVASCRIPT
+     ========================================================================== */
+
+  /* ----- 8.1 Mensajes flotantes (toasts) ----- */
+  #contenedor-mensajes {
+      position: fixed;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 1080;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+  }
+
+  .mensaje-flotante {
+      background-color: var(--color-header-bg);
+      color: var(--color-header-text);
+      padding: 0.75rem 1rem;
+      border-radius: 0.375rem;
+      border-left: 0.25rem solid var(--color-accent);
+      box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.25);
+      font-size: 0.9rem;
+      max-width: 18rem;
+      animation: aparecer 0.3s ease;
+  }
+
+  .mensaje-exito {
+      border-left-color: #2e933c;
+  }
+
+  .mensaje-error {
+      border-left-color: #c1121f;
+  }
+
+  .mensaje-saliendo {
+      opacity: 0;
+      transform: translateX(1rem);
+      transition: var(--transicion-suave);
+  }
+
+  @keyframes aparecer {
+      from {
+          opacity: 0;
+          transform: translateY(0.5rem);
+      }
+
+      to {
+          opacity: 1;
+          transform: translateY(0);
+      }
+  }
+
+  /* ----- 8.2 Panel lateral del carrito ----- */
+  #panel-carrito {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(20rem, 85vw);
+      height: 100%;
+      background-color: var(--color-header-bg);
+      color: var(--color-header-text);
+      padding: 1.25rem;
+      transform: translateX(100%);
+      /* Cerrado: oculto del todo (sin sombra visible ni botones enfocables con Tab) */
+      visibility: hidden;
+      transition: transform 0.3s ease, visibility 0.3s ease;
+      z-index: 1090;
+      overflow-y: auto;
+  }
+
+  #panel-carrito.panel-abierto {
+      transform: translateX(0);
+      visibility: visible;
+      box-shadow: -0.25rem 0 1rem rgba(0, 0, 0, 0.3);
+  }
+
+  .panel-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 0.0625rem solid var(--color-nav-bg);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+  }
+
+  .panel-cabecera h2 {
+      font-size: 1.25rem;
+  }
+
+  #cerrar-carrito {
+      background: none;
+      border: none;
+      color: var(--color-accent);
+      font-size: 1.5rem;
+      line-height: 1;
+      cursor: pointer;
+  }
+
+  .item-carrito {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0;
+      border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.15);
+      font-size: 0.9rem;
+  }
+
+  .item-carrito .text-muted {
+      color: var(--color-subtext) !important;
+  }
+
+  .btn-quitar {
+      background: none;
+      border: none;
+      color: #ff8fa3;
+      font-size: 1.25rem;
+      cursor: pointer;
+  }
+
+  .panel-total {
+      margin: 1rem 0;
+      font-weight: bold;
+      color: var(--color-accent);
+  }
+
+  /* ----- 8.3 Barra de filtros y buscador ----- */
+  .barra-filtros {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+  }
+
+  .grupo-filtros {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+  }
+
+  .btn-filtro {
+      background-color: var(--color-card-bg);
+      color: var(--color-header-bg);
+      border: 0.0625rem solid var(--color-border);
+      border-radius: 2rem;
+      padding: 0.375rem 1rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: var(--transicion-suave);
+  }
+
+  .btn-filtro:hover,
+  .btn-filtro.activo {
+      background-color: var(--color-header-bg);
+      color: var(--color-accent);
+      border-color: var(--color-header-bg);
+  }
+
+  .form-buscador {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+  }
+
+  .campo-buscador {
+      padding: 0.45rem 0.75rem;
+      border: 0.0625rem solid var(--color-border);
+      border-radius: 2rem;
+      min-width: 14rem;
+      font-size: 0.9rem;
+  }
+
+  /* Clase que aplica JavaScript para esconder tarjetas filtradas */
+  .oculto {
+      display: none !important;
+  }
+
+  /* ----- 8.4 Tarjetas: resaltado y etiquetas ----- */
+  .card-resaltada {
+      transform: translateY(-0.4rem);
+      box-shadow: 0 0.75rem 1.25rem rgba(0, 0, 0, 0.15) !important;
+      transition: var(--transicion-suave);
+  }
+
+  .card {
+      position: relative;
+      transition: var(--transicion-suave);
+  }
+
+  .etiqueta-plataforma {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background-color: var(--color-header-bg);
+      color: var(--color-accent);
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 1rem;
+  }
+
+  .etiqueta-categoria {
+      align-self: flex-start;
+      background-color: var(--color-nav-bg);
+      color: var(--color-header-text);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 0.25rem;
+  }
+
+  .card-novedad img {
+      height: 11rem;
+      object-fit: contain;
+  }
+
+  /* ----- 8.5 Estados de carga y error (Fetch API) ----- */
+  .cargando,
+  .aviso-vacio {
+      text-align: center;
+      color: var(--color-desc);
+      font-style: italic;
+      padding: 1rem 0;
+  }
+
+  .aviso-error {
+      background-color: #fff3f3;
+      border: 0.0625rem solid #f1aeb5;
+      border-left: 0.25rem solid #c1121f;
+      border-radius: 0.375rem;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      color: #6a040f;
+  }
+
+  .acciones-error {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+  }
+
+  /* ----- Alturas de imágenes (antes estilos inline en index.html) ----- */
+  #gameCarousel .carousel-inner {
+      min-height: 23.75rem;
+  }
+
+  .carrusel-img {
+      height: 23.75rem;
+  }
+
+  .card-producto-img {
+      height: 12.5rem;
+      object-fit: contain;
+  }
+
+  @media (max-width: 48rem) {
+      #gameCarousel .carousel-inner {
+          min-height: 15rem;
+      }
+
+      .carrusel-img {
+          height: 15rem;
+      }
+  }
+
+  /* ----- 8.6 Formulario de contacto ----- */
+  .formulario-contacto {
+      max-width: 34rem;
+      margin: 0 auto;
+      background-color: var(--color-card-bg);
+      border: 0.0625rem solid var(--color-border);
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+      display: grid;
+      gap: 1rem;
+  }
+
+  .formulario-contacto label {
+      display: block;
+      font-weight: bold;
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+      color: var(--color-header-bg);
+  }
+
+  .formulario-contacto input,
+  .formulario-contacto textarea {
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      border: 0.0625rem solid var(--color-border);
+      border-radius: 0.25rem;
+      font-family: inherit;
+      font-size: 0.95rem;
+  }
+
+  .campo-invalido {
+      border-color: #c1121f !important;
+      background-color: #fff5f5;
+  }
+
+  .texto-error {
+      color: #c1121f;
+      font-size: 0.8rem;
+      margin-top: 0.25rem;
+  }
+
+  .resumen-contacto {
+      max-width: 34rem;
+      margin: 1rem auto 0 auto;
+      background-color: #edf7ee;
+      border-left: 0.25rem solid #2e933c;
+      border-radius: 0.375rem;
+      padding: 1rem 1.25rem;
+  }
+
+  .resumen-contacto h3 {
+      font-size: 1.1rem;
+      color: var(--color-header-bg);
+      margin-bottom: 0.25rem;
+  }
+
+  /* ----- 8.7 Página de detalle: cantidad, subtotal y relacionados ----- */
+  .btn-cantidad {
+      background-color: var(--color-nav-bg);
+      color: var(--color-header-text);
+      border: none;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 0.25rem;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: var(--transicion-suave);
+  }
+
+  .btn-cantidad:hover {
+      background-color: var(--color-header-bg);
+  }
+
+  .subtotal {
+      margin-top: 1rem;
+      font-weight: bold;
+      color: var(--color-header-bg);
+  }
+
+  .detalle-imagen img {
+      transition: transform 0.3s ease;
+  }
+
+  .imagen-zoom {
+      transform: scale(1.08);
+  }
+
+  .relacionados {
+      margin-top: 3rem;
+  }
+
+  .relacionados h2 {
+      font-size: 1.5rem;
+      color: var(--color-header-bg);
+      margin-bottom: 1rem;
+      border-bottom: 0.125rem solid var(--color-nav-bg);
+      padding-bottom: 0.5rem;
+  }
+
+  .lista-relacionados {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+      gap: 1.25rem;
+  }
+
+  .tarjeta-relacionada {
+      background-color: var(--color-card-bg);
+      border: 0.0625rem solid var(--color-border);
+      border-top: 0.25rem solid var(--color-accent);
+      border-radius: 0.5rem;
+      padding: 1rem;
+      text-align: center;
+  }
+
+  .tarjeta-relacionada img {
+      width: 100%;
+      height: 8rem;
+      object-fit: contain;
+      margin-bottom: 0.5rem;
+  }
+
+  .tarjeta-relacionada h3 {
+      font-size: 1rem;
+      color: var(--color-header-bg);
+  }

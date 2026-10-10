@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "nombre": "Control inalámbrico DualSense",
+    "titulo": "Control inalámbrico DualSense",
+    "categoria": "Accesorios",
+    "plataforma": "PlayStation 5",
+    "precio": 64990,
+    "precioOferta": 54990,
+    "imagen": "assets/img/controlPS5.jpeg",
+    "alt": "Control inalámbrico",
+    "resumen": "Disfruta de la mejor experiencia de juego con el joystick Sony DualSense inalámbrico para PS5.",
+    "descripcion": "Su diseño ergonómico asegura un agarre cómodo y preciso para horas de juego ininterrumpido, mientras que su micrófono integrado facilita la comunicación con tu equipo. Prepárate para una experiencia de juego intuitiva, envolvente y sin límites, donde cada movimiento y sensación cobra vida en tus manos."
+  },
+  {
+    "id": 2,
+    "nombre": "Consola nintendo Switch 2",
+    "titulo": "Consola nintendo Switch 2 negro",
+    "categoria": "Consolas",
+    "plataforma": "Nintendo Switch 2",
+    "precio": 499990,
+    "precioOferta": 424990,
+    "imagen": "assets/img/switch2.webp",
+    "alt": "consola nintendo Switch",
+    "resumen": "Gráficos que dejan con la boca abierta y portabilidad que te acompaña a donde vayas.",
+    "descripcion": "Con solo presionar el botón C en tu Joy-Con derecho, puedes hablar con tus amigos gracias al GameChat y al micrófono integrado. La experiencia multiplayer se vuelve más cercana y divertida, sin importar la distancia."
+  },
+  {
+    "id": 3,
+    "nombre": "Consola Pro PS5 Sony",
+    "titulo": "Consola Pro PS5 Sony",
+    "categoria": "Consolas",
+    "plataforma": "PlayStation 5",
+    "precio": 749990,
+    "precioOferta": 636990,
+    "imagen": "assets/img/PS5.webp",
+    "alt": "Consola Pro PS5 Sony",
+    "resumen": "Prepárate para una experiencia inigualable con gráficos de última generación.",
+    "descripcion": "Sumérgete en la nueva era del gaming con la Consola PlayStation 5 HW Standard de 1TB, la cúspide de la innovación y el entretenimiento interactivo. Equipada con una asombrosa velocidad de procesamiento de 3.5 GHz gracias a su CPU AMD Ryzen y 16GB de RAM, esta consola ofrece gráficos 4K vibrantes y un rendimiento sin igual que te transportará a mundos increíbles."
+  },
+  {
+    "id": 4,
+    "nombre": "Juego Metroid Prime 4 Beyond",
+    "titulo": "Juego Metroid Prime 4 Beyond Nintendo switch",
+    "categoria": "Juegos",
+    "plataforma": "Nintendo Switch 2",
+    "precio": 39990,
+    "precioOferta": 33990,
+    "imagen": "assets/img/Metroid.webp",
+    "alt": "Juego Metroid Prime 4 Beyond Nintendo switch",
+    "resumen": "Samus Aran es transportada al misterioso planeta Viewros lleno de ruinas enigmáticas.",
+    "descripcion": "Samus adquiere poderes misteriosos que te permiten superar obstáculos, interactuar con el entorno y enfrentarte a los peligros del planeta de manera estratégica."
+  }
+]

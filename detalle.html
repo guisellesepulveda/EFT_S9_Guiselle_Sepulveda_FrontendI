@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Producto - GAME_CENTER</title>
+    <!-- Ícono de la pestaña (SVG en línea: evita el error 404 de favicon.ico) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
+    <!-- Enlace CSS de Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Hoja de estilos personalizada -->
+    <link rel="stylesheet" href="assets/css/game.css" />
+</head>
+
+<body>
+    <!-- Hueco de la navbar: la construye crearNavbar() (assets/js/comun.js) desde assets/js/detalle.js -->
+    <div id="zona-navbar"></div>
+
+    <!-- Cabecera -->
+    <header id="top" class="bg-primary text-white text-center py-4">
+        <h1 class="display-6 fw-bold">GAME_CENTER</h1>
+    </header>
+    <!-- Contenido de Detalle -->
+    <main>
+        <!-- El detalle del producto (según ?id= de la URL) lo construye assets/js/detalle.js -->
+        <div id="zona-detalle"></div>
+
+        <!-- Productos relacionados: los carga assets/js/detalle.js con la Fetch API -->
+        <section class="relacionados" id="zona-relacionados"></section>
+    </main>
+
+    <!-- Hueco del pie de página: lo construye crearFooter() (assets/js/comun.js) -->
+    <div id="zona-footer"></div>
+    <!-- Contenedor de los mensajes flotantes que escribe assets/js/comun.js -->
+    <div id="contenedor-mensajes"></div>
+
+    <!-- Script de Bootstrap 5 (necesario para el menú colapsable) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Scripts propios -->
+    <script src="assets/js/comun.js"></script>
+    <script src="assets/js/detalle.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+[
+  {
+    "id": 101,
+    "titulo": "Astro Bot",
+    "categoria": "Juegos",
+    "plataforma": "PlayStation 5",
+    "precio": 44990,
+    "stock": 12,
+    "imagen": "assets/img/PS5.webp",
+    "descripcion": "Plataformas 3D lleno de guiños a la historia de PlayStation. Ganador del Juego del Año."
+  },
+  {
+    "id": 102,
+    "titulo": "Mario Kart World",
+    "categoria": "Juegos",
+    "plataforma": "Nintendo Switch 2",
+    "precio": 54990,
+    "stock": 8,
+    "imagen": "assets/img/switch2.webp",
+    "descripcion": "Carreras en mundo abierto con 24 corredores en pista y modo supervivencia."
+  },
+  {
+    "id": 103,
+    "titulo": "Metroid Prime 4: Beyond",
+    "categoria": "Juegos",
+    "plataforma": "Nintendo Switch 2",
+    "precio": 39990,
+    "stock": 0,
+    "imagen": "assets/img/Metroid.webp",
+    "descripcion": "Samus regresa al planeta Viewros con nuevos poderes psíquicos. Edición estándar."
+  },
+  {
+    "id": 104,
+    "titulo": "Control DualSense Edge",
+    "categoria": "Accesorios",
+    "plataforma": "PlayStation 5",
+    "precio": 199990,
+    "stock": 5,
+    "imagen": "assets/img/controlPS5.jpeg",
+    "descripcion": "Control profesional con gatillos y sticks intercambiables, perfiles configurables."
+  },
+  {
+    "id": 105,
+    "titulo": "Consola PS5 Pro Digital",
+    "categoria": "Consolas",
+    "plataforma": "PlayStation 5",
+    "precio": 749990,
+    "stock": 3,
+    "imagen": "assets/img/PS5.webp",
+    "descripcion": "Renderizado avanzado con IA, 2TB de almacenamiento y ray tracing mejorado."
+  },
+  {
+    "id": 106,
+    "titulo": "Pack Nintendo Switch 2 + Juego",
+    "categoria": "Consolas",
+    "plataforma": "Nintendo Switch 2",
+    "precio": 549990,
+    "stock": 6,
+    "imagen": "assets/img/switch2.webp",
+    "descripcion": "Consola con Joy-Con 2, base HDMI y un juego digital incluido a elección."
+  }
+]
