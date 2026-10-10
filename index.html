@@ -84,24 +84,24 @@
     <section id="contacto" class="mt-5">
         <h2 class="text-center fw-bold mb-4">Escríbenos</h2>
 
-        <form id="form-contacto" class="formulario-contacto" novalidate>
-            <div>
-                <label for="nombre">Nombre</label>
+        <form id="form-contacto" class="card card-body shadow-sm border-0 mx-auto" style="max-width: 34rem;" novalidate>
+            <div class="mb-3">
+                <label class="form-label fw-bold" for="nombre">Nombre</label>
                 <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" />
                 <!-- Hueco donde JavaScript escribe el error de este campo -->
-                <div class="zona-error" id="error-nombre"></div>
+                <div class="invalid-feedback" id="error-nombre"></div>
             </div>
-            <div>
-                <label for="correo">Correo electrónico</label>
+            <div class="mb-3">
+                <label class="form-label fw-bold" for="correo">Correo electrónico</label>
                 <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.cl" />
                 <!-- Hueco donde JavaScript escribe el error de este campo -->
-                <div class="zona-error" id="error-correo"></div>
+                <div class="invalid-feedback" id="error-correo"></div>
             </div>
-            <div>
-                <label for="mensaje">Mensaje</label>
-                <textarea id="mensaje" name="mensaje" rows="4" placeholder="¿En qué podemos ayudarte?"></textarea>
+            <div class="mb-3">
+                <label class="form-label fw-bold" for="mensaje">Mensaje</label>
+                <textarea id="mensaje" class="form-control" name="mensaje" rows="4" placeholder="¿En qué podemos ayudarte?"></textarea>
                 <!-- Hueco donde JavaScript escribe el error de este campo -->
-                <div class="zona-error" id="error-mensaje"></div>
+                <div class="invalid-feedback" id="error-mensaje"></div>
             </div>
             <button type="submit" class="btn btn-dark w-100">Enviar consulta</button>
         </form>

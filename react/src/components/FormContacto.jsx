@@ -50,7 +50,7 @@ export default function FormContacto() {
             name: nombre,
             value: valores[nombre],
             onChange: cambiar,
-            className: errores[nombre] ? "campo-invalido" : undefined
+            className: "form-control" + (errores[nombre] ? " is-invalid" : "")
         };
     }
 
@@ -58,21 +58,21 @@ export default function FormContacto() {
         <section id="contacto" className="mt-5">
             <h2 className="text-center fw-bold mb-4">Escríbenos</h2>
 
-            <form id="form-contacto" className="formulario-contacto" noValidate onSubmit={enviar}>
-                <div>
-                    <label htmlFor="nombre">Nombre</label>
+            <form id="form-contacto" className="card card-body shadow-sm border-0 mx-auto" style={{ maxWidth: "34rem" }} noValidate onSubmit={enviar}>
+                <div className="mb-3">
+                    <label className="form-label fw-bold" htmlFor="nombre">Nombre</label>
                     <input type="text" placeholder="Tu nombre" {...campo("nombre")} />
-                    <div className="zona-error">{errores.nombre && <p className="texto-error">{errores.nombre}</p>}</div>
+                    <div className="invalid-feedback">{errores.nombre}</div>
                 </div>
-                <div>
-                    <label htmlFor="correo">Correo electrónico</label>
+                <div className="mb-3">
+                    <label className="form-label fw-bold" htmlFor="correo">Correo electrónico</label>
                     <input type="email" placeholder="ejemplo@correo.cl" {...campo("correo")} />
-                    <div className="zona-error">{errores.correo && <p className="texto-error">{errores.correo}</p>}</div>
+                    <div className="invalid-feedback">{errores.correo}</div>
                 </div>
-                <div>
-                    <label htmlFor="mensaje">Mensaje</label>
+                <div className="mb-3">
+                    <label className="form-label fw-bold" htmlFor="mensaje">Mensaje</label>
                     <textarea rows="4" placeholder="¿En qué podemos ayudarte?" {...campo("mensaje")} />
-                    <div className="zona-error">{errores.mensaje && <p className="texto-error">{errores.mensaje}</p>}</div>
+                    <div className="invalid-feedback">{errores.mensaje}</div>
                 </div>
                 <button type="submit" className="btn btn-dark w-100">Enviar consulta</button>
             </form>

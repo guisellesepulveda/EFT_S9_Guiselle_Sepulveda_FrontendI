@@ -565,44 +565,9 @@
   }
 
   /* ----- 8.6 Formulario de contacto ----- */
-  .formulario-contacto {
-      max-width: 34rem;
-      margin: 0 auto;
-      background-color: var(--color-card-bg);
-      border: 0.0625rem solid var(--color-border);
-      border-radius: 0.5rem;
-      padding: 1.5rem;
-      display: grid;
-      gap: 1rem;
-  }
-
-  .formulario-contacto label {
-      display: block;
-      font-weight: bold;
-      font-size: 0.9rem;
-      margin-bottom: 0.25rem;
-      color: var(--color-header-bg);
-  }
-
-  .formulario-contacto input,
-  .formulario-contacto textarea {
-      width: 100%;
-      padding: 0.5rem 0.75rem;
-      border: 0.0625rem solid var(--color-border);
-      border-radius: 0.25rem;
-      font-family: inherit;
-      font-size: 0.95rem;
-  }
-
   .campo-invalido {
       border-color: #c1121f !important;
       background-color: #fff5f5;
-  }
-
-  .texto-error {
-      color: #c1121f;
-      font-size: 0.8rem;
-      margin-top: 0.25rem;
   }
 
   .resumen-contacto {

@@ -540,16 +540,16 @@ function validarContacto(nombre, correo, mensaje) {
 
 /** Escribe el texto de error en el hueco que hay debajo de cada campo. */
 function pintarError(formulario, campo, texto) {
-    formulario.elements[campo].classList.add("campo-invalido");
+    formulario.elements[campo].classList.add("is-invalid");
 
     const zona = document.getElementById("error-" + campo);
-    if (zona) zona.replaceChildren(crearElemento("p", { clase: "texto-error", texto: texto }));
+    if (zona) zona.textContent = texto;
 }
 
 /** Borra los mensajes de error de un intento anterior. */
 function limpiarErrores(formulario) {
-    formulario.querySelectorAll(".zona-error").forEach(zona => zona.replaceChildren());
-    formulario.querySelectorAll(".campo-invalido").forEach(campo => campo.classList.remove("campo-invalido"));
+    formulario.querySelectorAll(".invalid-feedback").forEach(zona => zona.replaceChildren());
+    formulario.querySelectorAll(".is-invalid").forEach(campo => campo.classList.remove("is-invalid"));
 }
 
 /** Pinta el recuadro de confirmación que se ve al enviar correctamente. */
