@@ -5,7 +5,7 @@ import { useMensajes } from "../context/MensajesContext";
 import { formatearPrecio, rutaPublica } from "../utils/formato";
 
 /** Tarjeta de un producto destacado: imagen, nombre, precio normal, precio oferta y resumen. */
-export default function TarjetaProducto({ producto }) {
+export default function TarjetaProducto({ producto, onEliminar }) {
     const [resaltada, setResaltada] = useState(false);
     const { agregar, eliminar, cantidadEnCarrito } = useCarrito();
     const enCarrito = cantidadEnCarrito(producto.id) > 0;
@@ -20,6 +20,11 @@ export default function TarjetaProducto({ producto }) {
         }
         agregar({ id: producto.id, nombre: producto.nombre, precio: producto.precioOferta });
         mostrarMensaje(producto.nombre + " se agregó al carrito.", "exito");
+    }
+
+    /** Pide confirmación y avisa al padre (Home) para que quite el juego del estado. */
+    function pedirEliminar() {
+        if (window.confirm(`¿Eliminar "${producto.nombre}" del catálogo?`)) onEliminar(producto.id);
     }
 
     return (
@@ -50,6 +55,11 @@ export default function TarjetaProducto({ producto }) {
                     >
                         {enCarrito ? "✓ En el carrito" : "Agregar al carrito"}
                     </button>
+                    {onEliminar && (
+                        <button type="button" className="btn btn-outline-danger btn-sm w-100 mt-2" onClick={pedirEliminar}>
+                            Eliminar del catálogo
+                        </button>
+                    )}
                 </div>
             </div>
         </div>

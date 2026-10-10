@@ -5,7 +5,8 @@ import Carrusel from "../components/Carrusel";
 import FiltrosBuscador from "../components/FiltrosBuscador";
 import FormContacto from "../components/FormContacto";
 import TarjetaNovedad from "../components/TarjetaNovedad";
-import TarjetaProducto from "../components/TarjetaProducto";
+import ListaJuegos from "../components/ListaJuegos";
+import { useCarrito } from "../context/CarritoContext";
 import { useMensajes } from "../context/MensajesContext";
 import useDatos from "../hooks/useDatos";
 import { ESQUEMA_NOVEDAD, ESQUEMA_PRODUCTO, URL_NOVEDADES, URL_PRODUCTOS, mensajeDeError } from "../utils/datos";
@@ -13,11 +14,16 @@ import { ESQUEMA_NOVEDAD, ESQUEMA_PRODUCTO, URL_NOVEDADES, URL_PRODUCTOS, mensaj
 export default function Home() {
     const { search, key } = useLocation();
     const { mostrarMensaje } = useMensajes();
+    const { eliminar: quitarDelCarrito } = useCarrito();
     const productos = useDatos(URL_PRODUCTOS, ESQUEMA_PRODUCTO, "productos.json");
     const novedades = useDatos(URL_NOVEDADES, ESQUEMA_NOVEDAD, "novedades.json");
 
     const [categoria, setCategoria] = useState(() => new URLSearchParams(search).get("categoria") || "Todos");
     const [busqueda, setBusqueda] = useState("");
+    // Estado de los videojuegos: nace del JSON y luego se puede modificar (agregar / eliminar).
+    const [juegos, setJuegos] = useState([]);
+
+    useEffect(() => { if (productos.datos) setJuegos(productos.datos); }, [productos.datos]);
 
     useEffect(() => { document.title = "GAME_CENTER - Tienda de Videojuegos"; }, []);
 
@@ -38,10 +44,10 @@ export default function Home() {
         if (novedades.error) mostrarMensaje("No pudimos cargar las novedades.", "error");
     }, [novedades.error, mostrarMensaje]);
 
-    const categorias = productos.datos ? ["Todos", ...new Set(productos.datos.map((p) => p.categoria))] : [];
+    const categorias = productos.datos ? ["Todos", ...new Set(juegos.map((p) => p.categoria))] : [];
 
     const texto = busqueda.trim().toLowerCase();
-    const visibles = (productos.datos || []).filter(
+    const visibles = juegos.filter(
         (p) => (categoria === "Todos" || p.categoria === categoria) && p.nombre.toLowerCase().includes(texto)
     );
 
@@ -49,6 +55,17 @@ export default function Home() {
         const n = visibles.length;
         if (n === 0) mostrarMensaje("No encontramos productos con ese criterio.", "info");
         else mostrarMensaje(n + (n === 1 ? " producto encontrado." : " productos encontrados."), "exito");
+    }
+
+    function eliminarJuego(id) {
+        const juego = juegos.find((j) => j.id === id);
+        setJuegos((actual) => actual.filter((j) => j.id !== id));
+        quitarDelCarrito(id);
+        // Si era el último de la categoría activa, vuelve a "Todos" para no dejar el filtro vacío.
+        if (juego && categoria === juego.categoria && !juegos.some((j) => j.id !== id && j.categoria === categoria)) {
+            setCategoria("Todos");
+        }
+        if (juego) mostrarMensaje(juego.nombre + " se eliminó del catálogo.", "info");
     }
 
     function elegirCategoria(nueva) {
@@ -66,7 +83,8 @@ export default function Home() {
             </header>
 
             <main>
-                {productos.datos && <Carrusel productos={productos.datos} />}
+                {/* key: si cambia la lista de juegos, el carrusel se vuelve a montar con sus slides al día */}
+                {juegos.length > 0 && <Carrusel key={juegos.map((j) => j.id).join("-")} productos={juegos} />}
 
                 <section id="productos">
                     <h2 className="text-center mb-4 fw-bold">Productos Destacados</h2>
@@ -91,13 +109,7 @@ export default function Home() {
                         />
                     )}
 
-                    <div className="row g-4">
-                        {visibles.map((p) => <TarjetaProducto key={p.id} producto={p} />)}
-                    </div>
-
-                    {productos.datos && visibles.length === 0 && (
-                        <p className="aviso-vacio">No encontramos productos con ese criterio.</p>
-                    )}
+                    {productos.datos && <ListaJuegos juegos={visibles} onEliminar={eliminarJuego} />}
                 </section>
 
                 <section id="novedades" className="mt-5">
