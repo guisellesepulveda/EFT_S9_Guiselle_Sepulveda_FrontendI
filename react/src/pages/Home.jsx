@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import AvisoError from "../components/AvisoError";
 import Carrusel from "../components/Carrusel";
 import FiltrosBuscador from "../components/FiltrosBuscador";
+import FormAgregarJuego from "../components/FormAgregarJuego";
 import FormContacto from "../components/FormContacto";
 import TarjetaNovedad from "../components/TarjetaNovedad";
 import ListaJuegos from "../components/ListaJuegos";
@@ -68,6 +69,12 @@ export default function Home() {
         if (juego) mostrarMensaje(juego.nombre + " se eliminó del catálogo.", "info");
     }
 
+    function agregarJuego(nuevo) {
+        const id = juegos.reduce((mayor, j) => Math.max(mayor, j.id), 0) + 1;
+        setJuegos((actual) => [...actual, { ...nuevo, id }]);
+        mostrarMensaje(nuevo.nombre + " se agregó al catálogo.", "exito");
+    }
+
     function elegirCategoria(nueva) {
         setCategoria(nueva);
         setBusqueda("");
@@ -110,6 +117,7 @@ export default function Home() {
                     )}
 
                     {productos.datos && <ListaJuegos juegos={visibles} onEliminar={eliminarJuego} />}
+                    {productos.datos && <FormAgregarJuego onAgregar={agregarJuego} />}
                 </section>
 
                 <section id="novedades" className="mt-5">
